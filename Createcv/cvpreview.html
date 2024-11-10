@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated CV</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --left-column-bg-color:  #34495e; /* Default color */
+          }
+          
+          
+          * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
+            
+            body {
+              font-family: 'Roboto', 'Arial', sans-serif;
+              line-height: 1.6;
+              color: #333;
+              background-color: #f4f4f4;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              min-height: 100vh;
+              padding: 20px;
+            }
+            
+            /* CV Container */
+            .cv-container {
+              width: 210mm; /* A4 width */
+              height: 297mm; /* A4 height */
+              background-color: #ffffff;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+              display: grid;
+              margin-top: 5%;
+              grid-template-columns: 1fr 2fr;
+              overflow: hidden;
+              border-radius: 8px;
+            }
+            
+            /* Left Column */
+            .cv-left-column {
+              background-color: var(--left-column-bg-color);
+              color: #ffffff;
+              padding: 30px 20px;
+              border-top-left-radius: 8px;
+              border-bottom-left-radius: 8px;
+            }
+            
+            /* Right Column */
+            .cv-right-column {
+              padding: 30px;
+              overflow: hidden; /* Removes scrolling */
+            }
+            
+            /* Header Section */
+            .cv-header {
+              text-align: center;
+              margin-bottom: 30px;
+            }
+            
+          
+          
+            #cvImage {
+              width: 100px;
+              height: 100px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 4px solid #ecf0f1;
+              margin-bottom: 15px;
+            }
+            
+            .cv-header-text h1 {
+              font-size: 24px;
+              font-weight: bold;
+              color: #ecf0f1;
+              word-wrap: break-word;
+              margin-bottom: 5px;
+            }
+            
+            .cv-header-text p {
+              font-size: 13px;
+              color: #bdc3c7;
+              word-wrap: break-word;
+            }
+            
+            /* Section Styles */
+            .cv-section {
+              margin-bottom: 25px;
+            }
+            
+            .cv-section h2 {
+              font-size: 18px;
+              font-weight: 700;
+              border-bottom: 2px solid var(--left-column-bg-color);
+              padding-bottom: 5px;
+              margin-bottom: 15px;
+              color: #2c3e50;
+            }
+            
+            .cv-left-column .cv-section h2 {
+              color: #ecf0f1;
+              border-bottom-color: #ecf0f1;
+            }
+            
+            /* Summary Section */
+            #cvSummary {
+              font-size: 1rem;
+              line-height: 1.6;
+              color: #444;
+              margin-bottom: 20px;
+              text-align: justify;
+              white-space: normal;
+              overflow-wrap: break-word;
+            }
+            
+            /* Experience and Education Sections */
+            #cvExperience, #cvEducation {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+            }
+            
+            #cvExperience p, #cvEducation p {
+              position: relative;
+              padding-left: 20px;
+              word-wrap: break-word;
+              margin-bottom: 6px;
+            }
+            
+            #cvExperience p:nth-child(4n+1),
+            #cvEducation p:nth-child(3n+1) {
+              font-size: 15px;
+              font-weight: bold;
+              color: #2c3e50;
+            }
+            
+            #cvExperience p:nth-child(2n+2),
+            #cvEducation p:nth-child(3n+2) {
+              font-size: 13px;
+              color: #7f8c8d;
+              font-style: italic;
+            }
+            
+            #cvExperience p:nth-child(3n+3),
+            #cvEducation p:nth-child(3n+3) {
+              font-size: 13px;
+              color: #555;
+              line-height: 1.5;
+            }
+            
+            #cvExperience p::before, 
+            #cvEducation p::before {
+              content: '•';
+              position: absolute;
+              left: 0;
+              color: var(--left-column-bg-color);
+            }
+            
+            #cvExperience p:nth-child(3n+2)::before,
+            #cvEducation p:nth-child(3n+2)::before,
+            #cvExperience p:nth-child(3n+3)::before,
+            #cvEducation p:nth-child(3n+3)::before {
+              content: none;
+            }
+            
+            /* Skills and Languages (List Style) */
+            #cvSkills, #cvLanguages {
+              display: flex;
+              flex-direction: column;
+              gap: 8px;
+            }
+            
+            #cvSkills p, #cvLanguages p {
+              padding-left: 20px;
+              font-size: 13px;
+              color: #d9dee2;
+              position: relative;
+            }
+            
+            #cvSkills p::before, #cvLanguages p::before {
+              content: '•';
+              position: absolute;
+              left: 0;
+              color: var(--left-column-bg-color);
+            }
+            
+            /* Print Styles */
+            @media print {
+              body {
+                background-color: white;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+              }
+            
+              .cv-container {
+                width: 210mm;
+                height: 297mm;
+                box-shadow: none;
+              }
+            
+              .cv-left-column {
+                background-color: var(--left-column-bg-color) !important;
+              }
+            
+              #cvSkills p, #cvLanguages p {
+                background-color:var(--left-column-bg-color)!important;
+                color: #ecf0f1 !important;
+              }
+              .toolsbar {
+                display: none;
+              }
+            }
+            
+            /* Responsive Styles */
+            @media screen and (max-width: 600px) {
+              body {
+                padding: 10px;
+              }
+            
+              .cv-container {
+                width: 100%;
+                height: auto;
+                min-height: 100vh;
+                box-shadow: none;
+                grid-template-columns: 1fr;
+              }
+            
+              .cv-left-column {
+                border-radius: 0;
+                text-align: center;
+                padding: 20px;
+              }
+            
+              #cvImage {
+                width: 80px;
+                height: 80px;
+              }
+            
+              .cv-header-text h1 {
+                font-size: 20px;
+              }
+            
+              .cv-header-text p {
+                font-size: 12px;
+              }
+            
+              .cv-section h2 {
+                font-size: 16px;
+              }
+            
+              #cvSkills p, #cvLanguages p {
+                font-size: 11px;
+                padding-left: 15px;
+              }
+            }
+            
+            .toolsbar {
+              display: flex;
+              flex-wrap: wrap; /* Ensure items wrap on smaller screens */
+              justify-content: center;
+              margin: 0 17rem;
+              align-items: center;
+              background-color: #34495e;
+              padding: 10px 20px;
+              border-radius: 8px;
+              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+              top: 0;
+              z-index: 100;
+              color: #bdc3c7;
+              width: 100%;
+              max-width: 100%;
+            }
+            
+            /* Styling for buttons and selectors */
+            .toolsbar button,
+            .toolsbar select,
+            .toolsbar input[type="color"] {
+              background-color: #ecf0f1;
+              color:var(--left-column-bg-color);
+              border: none;
+              padding: 12px 18px;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 14px;
+              transition: background-color 0.3s ease, color 0.3s ease;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              margin: 5px; /* Add margin for spacing between elements */
+            }
+            
+            .toolsbar button:hover,
+            .toolsbar select:hover,
+            .toolsbar input[type="color"]:hover {
+              background-color: #3498db;
+              color: #fff;
+            }
+            
+            /* For color input specifically */
+            .toolsbar input[type="color"] {
+              padding: 0;
+              width: 40px; /* Adjust width */
+              height: 40px; /* Adjust height */
+              border-radius: 5px;
+              transition: border-color 0.3s ease;
+            }
+            
+            /* Flexbox for font and color selectors */
+            .font-selector, .color-selector {
+              display: flex;
+              flex-direction: column;
+              width: 100%;
+            }
+          /* For larger screens, maintain row layout */
+          @media screen and (min-width: 768px) {
+            .toolsbar {
+              flex-direction: row;
+              justify-content: space-between;
+              align-items: center;
+          
+              padding: 10px 40px; /* Increase padding for larger screens */
+            }
+          
+            .toolsbar button,
+            .toolsbar select,
+            .toolsbar input[type="color"] {
+              width: auto;
+              margin-right: 10px;
+            }
+          }
+          
+          /* For smaller screens, stack items vertically */
+          @media screen and (max-width: 768px) {
+            .toolsbar {
+              flex-direction: column;
+              width: 100%;
+              margin: 0;
+              align-items: flex-start;
+              gap: 10px; /* Add spacing between elements */
+            }
+          
+            .toolsbar button,
+            .toolsbar select,
+            .toolsbar input[type="color"] {
+              width: 100%;
+              margin-bottom: 10px;
+            }
+          
+            .toolsbar button:last-child,
+            .toolsbar select:last-child,
+            .toolsbar input[type="color"]:last-child {
+              margin-bottom: 0;
+            }
+            .pdf-mode {
+              width: 800px; /* Or the width you use for desktop */
+              margin: 0 auto;
+          }
+          }
+          
+          @media screen and (max-width: 480px) {
+            .toolsbar button,
+            .toolsbar select,
+            .toolsbar input[type="color"] {
+              padding: 10px 12px;
+              font-size: 12px; /* Adjust font size */
+            }
+          }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="toolsbar">
+        <div class="toolsbar">
+            <button id="printCV">Print CV</button>
+            <button id="downloadPDF">Download PDF</button>
+            <button id="editCV">Edit CV</button>
+        
+            <!-- Font Selector -->
+            <div class="font-selector">
+                <label for="fontSelect">Font:</label>
+                <select id="fontSelect">
+                    <option value="Roboto">Roboto</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Times New Roman">Times New Roman</option>
+                    <option value="Georgia">Georgia</option>
+                    <option value="Courier New">Courier New</option>
+                </select>
+            </div>
+        
+            <!-- Color Selector -->
+            <div class="color-selector">
+                <label for="colorSelect">Color:</label>
+                <input type="color" id="colorSelect" value="#34495e">
+            </div>
+        </div>
+    </div>
+    
+    <div class="cv-container">
+        <div class="cv-left-column">
+            <header class="cv-header">
+                <img id="cvImage" alt="User Image" />
+                <div class="cv-header-text">
+                    <h1 id="cvName"></h1>
+                    <p id="cvEmail"></p>
+                    <p id="cvPhone"></p>
+                    <p id="cvAddress"></p>
+                </div>
+            </header>
+
+            <section class="cv-section">
+                <h2>Skills</h2>
+                <div id="cvSkills"></div>
+            </section>
+
+            <section class="cv-section">
+                <h2>Languages</h2>
+                <div id="cvLanguages"></div>
+            </section>
+        </div>
+
+        <div class="cv-right-column">
+            <section class="cv-section">
+                <h2>Summary</h2>
+                <div id="cvSummary"></div>
+            </section>
+
+            <section class="cv-section">
+                <h2>Experience</h2>
+                <div id="cvExperience"></div>
+            </section>
+
+            <section class="cv-section">
+                <h2>Education</h2>
+                <div id="cvEducation"></div>
+            </section>
+        </div>
+    </div>
+    <script src="./cvpreview.js" type="module" defer></script>
+</body>
+</html>

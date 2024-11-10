@@ -1,0 +1,140 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f0f4f8, #d1e3ff);
+    color: #333;
+}
+
+/* Container Styling */
+.view-resume-container {
+    max-width: 900px;
+    width: 90%;
+    margin: 20px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.view-resume-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Header Styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #3a3b3c;
+}
+
+.buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4CAF50; /* Green similar to the home page theme */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #388E3C;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Resume Preview */
+.resume-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.resume-preview img {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.resume-preview img:hover {
+    transform: scale(1.03);
+}
+
+/* Responsive Styling */
+@media (max-width: 1024px) {
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .btn {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .view-resume-container {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.4rem;
+    }
+    
+    .btn {
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+}
